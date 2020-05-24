@@ -1,0 +1,451 @@
+<sdf version='1.6'>
+  <model name='heron'>
+    <link name='base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 -0.128726 0 -0 0</pose>
+        <mass>28.2</mass> <!-- 28.2 -->
+        <inertia>
+          <ixx>10.0502</ixx> <!-- 10.0502 -->
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>10.0264</iyy>
+          <iyz>0</iyz>
+          <izz>10.0438</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://heron/meshes/heron_collision.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://heron/meshes/heron_base.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__left_panel_link_visual_1'>
+        <pose frame=''>0 0.34495 0.04959 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://heron/meshes/left_panel.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Yellow</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__right_panel_link_visual_2'>
+        <pose frame=''>0 -0.34495 0.04959 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://heron/meshes/right_panel.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Yellow</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__rear_plate_visual_3'>
+        <pose frame=''>-0.1915 0 0.001 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://heron/meshes/plain-rear-plate.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <self_collide>0</self_collide>
+    </link>
+    <link name='thruster_0'>
+      <pose frame=''>-0.53 0.377654 -0.16 0 1.57079 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.000017</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000017</iyy>
+          <iyz>0</iyz>
+          <izz>0.000017</izz>
+        </inertia>
+      </inertial>
+      <visual name='thruster_0_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://heron/meshes/prop.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='thruster_0_joint' type='revolute'>
+      <child>thruster_0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.05</damping>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='thruster_1'>
+      <pose frame=''>-0.53 -0.377654 -0.16 0 1.57079 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.000017</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000017</iyy>
+          <iyz>0</iyz>
+          <izz>0.000017</izz>
+        </inertia>
+      </inertial>
+      <visual name='thruster_1_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://heron/meshes/prop.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='thruster_1_joint' type='revolute'>
+      <child>thruster_1</child>
+      <parent>base_link</parent>
+     <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.05</damping>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='heron/imu_link'>
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='heron/imu_joint' type='revolute'>
+      <child>heron/imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
+      <robotNamespace></robotNamespace>
+      <linkName>heron/imu_link</linkName>
+      <imuTopic>/imu</imuTopic>
+      <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
+    </plugin>
+
+    <plugin name="gps_plugin" filename="libgazebo_gps_plugin.so">
+        <robotNamespace></robotNamespace>
+        <gpsNoise>true</gpsNoise>
+        <homeLatitude>47.343609</homeLatitude>
+        <homeLongitude>8.541391</homeLongitude>
+    </plugin>
+
+    <plugin name='magnetometer_plugin' filename='libgazebo_magnetometer_plugin.so'>
+      <robotNamespace/>
+      <pubRate>100</pubRate>
+      <noiseDensity>0.0004</noiseDensity>
+      <randomWalk>6.4e-06</randomWalk>
+      <biasCorrelationTime>600</biasCorrelationTime>
+      <magTopic>/mag</magTopic>
+    </plugin>
+
+    <plugin name='barometer_plugin' filename='libgazebo_barometer_plugin.so'>
+      <robotNamespace/>
+      <pubRate>50</pubRate>
+      <baroTopic>/baro</baroTopic>
+    </plugin>
+
+    <static>0</static>
+<plugin name='left_motor_model' filename='libgazebo_motor_model.so'>
+      <robotNamespace></robotNamespace>
+        <linkName>thruster_0</linkName>
+      <jointName>thruster_0_joint</jointName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1100</maxRotVelocity>
+      <motorConstant>18.54858e-03</motorConstant>
+      <momentConstant>0.01</momentConstant>
+      <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>0</motorNumber>
+      <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+    <plugin name='right_motor_model' filename='libgazebo_motor_model.so'>
+      <robotNamespace></robotNamespace>
+     <linkName>thruster_1</linkName>
+      <jointName>thruster_1_joint</jointName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1100</maxRotVelocity>
+      <motorConstant>18.54858e-03</motorConstant>
+      <momentConstant>0.01</momentConstant>
+      <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>1</motorNumber>
+      <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>/motor_speed/1</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+    <!-- motor_model instead of thruster
+    <plugin name='thruster_1_thruster_model' filename='libuuv_thruster_ros_plugin.so'>
+      <linkName>thruster_1</linkName>
+      <jointName>thruster_1_joint</jointName>
+      <thrusterID>1</thrusterID>
+      <gain>1</gain>
+      <clampMax>100</clampMax>
+      <clampMin>-100</clampMin>
+      <thrustMin>-35</thrustMin>
+      <thrustMax>35</thrustMax>
+      <thrust_efficiency>1</thrust_efficiency>
+      <propeller_efficiency>1</propeller_efficiency>
+      <dynamics>
+        <type>FirstOrder</type>
+        <timeConstant>0.05</timeConstant>
+      </dynamics>
+      <conversion>
+        <type>LinearInterp</type>
+        <inputValues>-1.0 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1.0</inputValues>
+        <outputValues>-19.88 -16.52 -12.6 -5.6 -1.4 0.0 2.24 9.52 21.28 28.0 33.6</outputValues>
+      </conversion>
+    </plugin>
+
+   
+    <plugin name='thruster_0_thruster_model' filename='libuuv_thruster_ros_plugin.so'>
+      <linkName>thruster_0</linkName>
+      <jointName>thruster_0_joint</jointName>
+      <thrusterID>0</thrusterID>
+      <gain>1</gain>
+      <clampMax>100</clampMax>
+      <clampMin>-100</clampMin>
+      <thrustMin>-35</thrustMin>
+      <thrustMax>350</thrustMax>
+      <thrust_efficiency>1</thrust_efficiency>
+      <propeller_efficiency>1</propeller_efficiency>
+      <dynamics>
+        <type>FirstOrder</type>
+        <timeConstant>0.05</timeConstant>
+      </dynamics>
+      <conversion>
+        <type>LinearInterp</type>
+        <inputValues>-1.0 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1.0</inputValues>
+        <outputValues>-19.88 -16.52 -12.6 -5.6 -1.4 0.0 2.24 9.52 21.28 28.0 33.6</outputValues>
+      </conversion>
+    </plugin> -->
+
+    <!-- The values from boat.sdf of PX4 -->
+    <plugin name='usv_dynamics_wamv_dynamics_plugin' filename='libgazebo_usv_dynamics_plugin.so'>
+      <bodyName>base_link</bodyName>
+      <waterLevel>0.1</waterLevel>
+      <waterDensity>997.8</waterDensity>
+      <length_n>2</length_n>
+
+      <wave_model>ocean_waves</wave_model>
+    </plugin> 
+<!--
+<plugin name='usv_dynamics_wamv_dynamics_plugin' filename='libgazebo_usv_dynamics_plugin.so'>
+  <waterLevel>0.15</waterLevel>
+  <waterDensity>997.8</waterDensity>
+  <xDotU>5.0</xDotU>
+  <yDotV>5.0</yDotV>
+  <nDotR>1.0</nDotR>
+  <xU>20.0</xU>
+  <xUU>0.0</xUU>
+  <yV>20.0</yV>
+  <yVV>0.0</yVV>
+  <zW>50.0</zW> 
+  <kP>20.0</kP>
+  <mQ>20.0</mQ>
+  <nR>20.0</nR>
+  <nRR>0.0</nRR> 
+  <maxCmd>1.0</maxCmd>
+  <maxForceFwd>40.0</maxForceFwd>
+  <maxForceRev>-40.0</maxForceRev>
+  <boatArea>0.48</boatArea>
+  <boatWidth>1.0</boatWidth>
+  <boatLength>1.35</boatLength>
+  <length_n>2</length_n>
+  <wave_model>ocean_waves</wave_model>
+</plugin> 
+-->
+    <!--
+    <plugin name='uuv_plugin' filename='libuuv_underwater_object_ros_plugin.so'>
+      <fluid_density>1028.0</fluid_density>
+      <flow_velocity_topic>hydrodynamics/current_velocity</flow_velocity_topic>
+      <debug>0</debug>
+      <link name='base_link'>
+        <volume>0.13</volume>
+        <box>
+          <width>1.0</width>
+          <length>1.35</length>
+          <height>0.32</height>
+        </box>
+        <center_of_buoyancy>0 0 0</center_of_buoyancy>
+        <metacentric_width>0.1</metacentric_width>
+        <metacentric_length>0.1</metacentric_length>
+        <submerged_height>0.02</submerged_height>
+        <hydrodynamic_model>
+          <type>fossen</type>
+          <added_mass>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</added_mass>
+          <offset_added_mass>0</offset_added_mass>
+          <linear_damping>-16.44998712 -15.79776044 -100 -13 -13 -6</linear_damping>
+          <quadratic_damping>-2.942 -2.7617212 -10 -5 -5 -5</quadratic_damping>
+          <linear_damping_forward_speed>0 0 0 0 0 0</linear_damping_forward_speed>
+          <offset_linear_damping>0</offset_linear_damping>
+          <offset_lin_forward_speed_damping>0</offset_lin_forward_speed_damping>
+          <offset_nonlin_damping>0</offset_nonlin_damping>
+          <scaling_damping>1.0</scaling_damping>
+        </hydrodynamic_model> 
+
+      </link>
+    </plugin>
+-->
+    <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
+      <robotNamespace></robotNamespace>
+      <imuSubTopic>/imu</imuSubTopic>
+      <gpsSubTopic>/gps</gpsSubTopic>
+      <magSubTopic>/mag</magSubTopic>
+      <baroSubTopic>/baro</baroSubTopic>
+      <mavlink_addr>INADDR_ANY</mavlink_addr>
+      <mavlink_udp_port>14560</mavlink_udp_port>
+      <serialEnabled>false</serialEnabled>
+      <serialDevice>/dev/ttyACM0</serialDevice>
+      <baudRate>921600</baudRate>
+      <qgc_addr>INADDR_ANY</qgc_addr>
+      <qgc_udp_port>14550</qgc_udp_port>
+      <sdk_addr>INADDR_ANY</sdk_addr>
+      <sdk_udp_port>14540</sdk_udp_port>
+      <hil_mode>false</hil_mode>
+      <hil_state_level>false</hil_state_level>
+      <enable_lockstep>true</enable_lockstep>
+      <use_tcp>true</use_tcp>
+      <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
+      <control_channels>
+        <channel name="left_rotor">
+          <input_index>0</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>4</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+          <joint_name>thruster_1_joint</joint_name>
+        </channel>
+        <channel name="right_rotor">
+          <input_index>1</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>4</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+          <joint_name>thruster_0_joint</joint_name>
+        </channel>
+      </control_channels>
+    </plugin>
+  </model>
+</sdf>
+
+
